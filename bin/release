@@ -4,5 +4,5 @@ cat << EOF
 ---
 addons:
 default_process_types:
-  web: perl -Ilocal -Ilib bin/hubot -a irc -n hongbot
+  web: perl -Ilocal/lib/perl5 -Ilib bin/hubot -a irc -n hongbot
 EOF
