@@ -1,32 +1,30 @@
 Heroku buildpack: Perl
 ======================
 
-This is a Heroku buildpack that runs any PSGI based web applications using Starman.
+This is a Heroku buildpack that runs `Perl/p5-hubot` application.
 
 Usage
 -----
 
 Example usage:
 
-    $ ls
-    cpanfile
-    app.psgi
-    lib/
+    $ cpanm Hubot
+    $ hubot --create /path/to/hubot
+    $ cd /path/to/hubot
+    $ git init ; git add . ; git commit -m "init commit"
 
-    $ cat cpanfile
-    requires 'Plack', '1.0000';
-    requires 'DBI', '1.6';
-
-    $ heroku create --stack cedar --buildpack https://github.com/miyagawa/heroku-buildpack-perl.git
-
+    $ heroku create --stack cedar --buildpack https://github.com/aanoaa/heroku-buildpack-perl.git
     $ git push heroku master
-    ...
-    -----> Heroku receiving push
-    -----> Fetching custom buildpack
-    -----> Perl/PSGI app detected
-    -----> Installing dependencies
 
-The buildpack will detect that your app has an `app.psgi` in the root.
+    $ heroku config:add HEROKU_URL=http://your-herokuapp.herokuapp.com
+    $ heroku config:add HUBOT_IRC_ROOMS='#perl-kr,#aanoaa'
+    $ heroku config:add HUBOT_IRC_SERVER='irc.freenode.net'
+
+want to use more `Hubot::Scripts::*`? describe it to `cpanfile` and
+`hubot-scripts.json`
+
+many softwares built by @miyagawa, including `cpanm` and `cpanfile`
+are great. thanks. :+1:
 
 Libraries
 ---------
